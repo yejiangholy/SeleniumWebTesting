@@ -1,5 +1,8 @@
 package com.company;
+import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.sql.*;
@@ -18,6 +21,7 @@ public class DatabaseTest {
     public static String driver = "com.mysql.jdbc.Driver";
     public static WebDriver webDriver = new ChromeDriver();
     public static String loginUserName = "";
+    static Logger log = Logger.getLogger("DatebaseTest");
 
     public void test(){
         try {
@@ -30,15 +34,9 @@ public class DatabaseTest {
     }
     public void setUp(){
         try{
-            // Login set up
-            String baseUrl = "http://52.11.193.136/";
-            webDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-
-            webDriver.get(baseUrl);
-            HomePage home = new HomePage(webDriver);
-            home.LoginUser("Ye Jiang","sung753JY");
-            loginUserName = home.getCurrentLoginUser();
-
+            PropertyConfigurator.configure("log.properties");
+            loginUserName = "Ye Jiang";
+            //hard code user name for the purpose of this test
             Class.forName(driver).newInstance();
             // get connect to database
             conn = DriverManager.getConnection(DB_URL,DB_user,DB_password);
@@ -62,7 +60,7 @@ public class DatabaseTest {
                 if(id == 1) {
                     String DBname = results.getString("name");
 
-                   if(DBname.equals(loginUserName))System.out.println("DB check success");
+                   if(DBname.equals(loginUserName))log.info("----- DB test success");
                 }
             }
         }

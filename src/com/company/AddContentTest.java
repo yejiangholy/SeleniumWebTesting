@@ -58,6 +58,7 @@ public class AddContentTest {
 
         element = driver.findElement(By.id("edit-submit"));
         element.click();
+        element.click();
 
         try{Thread.sleep(3000);}catch(Exception e){} // add new content do need some response time, web Driver always goes to fast
         //driver.manage().timeouts().implicitlyWait(5,TimeUnit.SECONDS); --> I tried implicit wait, which didn't work
@@ -84,10 +85,12 @@ public class AddContentTest {
             element = driver.findElement(By.linkText(title));
             if(element != null){
                 log.info("found newly added article    ----- test passed");
+                driver.switchTo().defaultContent();
                 return true;
             }
         }catch(Exception e)
         {
+            driver.switchTo().defaultContent();
             log.info("haven't found newly added article  ----- test failed");
         }
         return false;

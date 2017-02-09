@@ -12,19 +12,19 @@ import java.lang.*;
  *
  * pre-request : already navigate to the home page
  */
-public  class HomePage {
+public  class Login {
 
     public static WebElement element;
     public static WebDriver driver;
-    static Logger log = Logger.getLogger("Home page");
+    static Logger log = Logger.getLogger("login user");
     static Appender appender;
 
 
-    public HomePage(WebDriver driver){
+    public Login(WebDriver driver){
         PropertyConfigurator.configure("log.properties");
         element = null;
         this.driver = driver;
-        log.info("----------------------Testing  Homepage  ");
+        log.info("----------------------Testing  login  ");
     }
 
     public static void fillUserName(String name){
