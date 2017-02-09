@@ -37,6 +37,14 @@ public class PostCommentTest {
         log.info("----------------------Testing posting comment");
     }
 
+    public void test(){
+        navigateToArticle();
+        inputSubject();
+        inputComment();
+        submitComment();
+        testCommentExist();
+    }
+
     public void navigateToArticle(){
         element = driver.findElement(By.linkText(article));
         element.click();
@@ -75,13 +83,4 @@ public class PostCommentTest {
         log.info("haven't found the content we just posted -- test failed");
         return false;
     }
-
-    public void test(){
-        navigateToArticle();
-        inputSubject();
-        inputComment();
-        submitComment();
-        testCommentExist();
-    }
-
 }
