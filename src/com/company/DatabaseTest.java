@@ -30,7 +30,7 @@ public class DatabaseTest {
 
             webDriver.get(baseUrl);
             HomePage home = new HomePage(webDriver);
-            home.testLoginUser("Ye Jiang","sung753JY");
+            home.LoginUser("Ye Jiang","sung753JY");
             loginUserName = home.getCurrentLoginUser();
 
             Class.forName(driver).newInstance();
