@@ -16,7 +16,8 @@ public class Main {
         boolean login = true;
         boolean db = false;
         boolean postComment = false;
-        boolean addNewArticle = true;
+        boolean addNewArticle = false;
+        boolean searchFunciton = true;
         if(login) {
             PropertyConfigurator.configure("log.properties");
             baseUrl = "http://52.11.193.136/";
@@ -44,6 +45,10 @@ public class Main {
         if(addNewArticle){
             AddContentTest addContent = new AddContentTest(driver,"Here is something new"," Everything will be fine and move forward");
             addContent.test();
+        }
+        if(searchFunciton){
+            SearchBarFunctionTest searchTest = new SearchBarFunctionTest(driver,"Algorithm");
+            searchTest.test();
         }
      }
 }

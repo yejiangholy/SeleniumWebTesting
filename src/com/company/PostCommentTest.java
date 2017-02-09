@@ -19,7 +19,7 @@ public class PostCommentTest {
 
     public static WebElement element;
     public static WebDriver driver;
-    static Logger log = Logger.getLogger("PostComment");
+    static Logger log = Logger.getLogger("SearchFunction");
     static String subject;
     static String content;
     static String article;

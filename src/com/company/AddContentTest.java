@@ -58,11 +58,11 @@ public class AddContentTest {
 
         element = driver.findElement(By.id("edit-submit"));
         element.click();
-        element.click();
 
-        try{Thread.sleep(3000);}catch(Exception e){}
-        driver.manage().timeouts().implicitlyWait(5,TimeUnit.SECONDS);
+        try{Thread.sleep(3000);}catch(Exception e){} // add new content do need some response time, web Driver always goes to fast
+        //driver.manage().timeouts().implicitlyWait(5,TimeUnit.SECONDS); --> I tried implicit wait, which didn't work
 
+        // we also need to switch back to default frame, in order to click the home button
         driver.switchTo().defaultContent();
         log.info("Add a new article with title : "+title );
         log.info("with content : "+ content);
@@ -80,10 +80,8 @@ public class AddContentTest {
 
         element = driver.findElement(By.xpath("//*[@id=\"overlay-container\"]/iframe[2]"));
         driver.switchTo().frame(element);
-
         try{
             element = driver.findElement(By.linkText(title));
-
             if(element != null){
                 log.info("found newly added article    ----- test passed");
                 return true;
