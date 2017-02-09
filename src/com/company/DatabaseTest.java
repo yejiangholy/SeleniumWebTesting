@@ -15,8 +15,8 @@ public class DatabaseTest {
     private static ResultSet results = null;
 
     public static String DB_URL =  "jdbc:mysql://drupal1.cjdyxtdazjt1.us-west-2.rds.amazonaws.com:3306/Drupal1";
-    public static String DB_user = "XXXXXXX";
-    public static String DB_password = "XXXXXXX";
+    public static String DB_user = "Ye_Jiang";
+    public static String DB_password = "sung753JY";
     public static String driver = "com.mysql.jdbc.Driver";
     public static WebDriver webDriver = new ChromeDriver();
     public static String loginUserName = "";
