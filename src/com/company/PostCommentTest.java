@@ -25,8 +25,6 @@ public class PostCommentTest {
     static String article;
     static Appender appender;
 
-
-
     public PostCommentTest(WebDriver driver, String subject, String content, String article){
         PropertyConfigurator.configure("log.properties");
         element = null;

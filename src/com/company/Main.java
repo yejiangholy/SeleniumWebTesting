@@ -13,7 +13,6 @@ public class Main {
     static String baseUrl;
 
     public static void main(String[] args) {
-
         boolean login = true;
         boolean db = false;
         boolean postComment = false;
@@ -30,23 +29,18 @@ public class Main {
 //            checkAllLinkResponse checkHomeLinks = new checkAllLinkResponse(driver, baseUrl);
 //            checkHomeLinks.testLinkResponse();
         }
-
         if(db) {
             DatabaseTest dbTester = new DatabaseTest();
-            dbTester.setUp();
             try {
                 dbTester.test();
             }catch(Exception e){
                 e.printStackTrace();
             }
-            dbTester.close();
         }
-
         if(postComment){
             PostCommentTest postingComment = new PostCommentTest(driver,"Comment","test comment here","Test Title");
             postingComment.test();
         }
-
         if(addNewArticle){
             AddContentTest addContent = new AddContentTest(driver,"Here is something new"," Everything will be fine and move forward");
             addContent.test();

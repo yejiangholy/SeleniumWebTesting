@@ -32,13 +32,11 @@ public class AddContentTest {
         log.info("----------------------Testing adding new content");
     }
 // post a content  --> enter save --> back to homepage --> go to content page --> check article exist
-
     public  void test(){
         addNewArticle();
         backToHomepage();
         testShowNewArticle();
     }
-
     public  void addNewArticle(){
         element = driver.findElement(By.linkText("Add content"));
         element.click();
@@ -75,7 +73,6 @@ public class AddContentTest {
         element.click();
         log.info("back to home page");
     }
-
     public  boolean testShowNewArticle(){
         try{Thread.sleep(1000);}catch(Exception e){}
         element = driver.findElement(By.id("toolbar-link-admin-content"));

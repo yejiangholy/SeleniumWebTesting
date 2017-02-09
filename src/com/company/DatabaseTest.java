@@ -9,11 +9,9 @@ import java.util.concurrent.TimeUnit;
  * Created by YeJiang on 2/8/17.
  */
 public class DatabaseTest {
-
     static Connection conn = null;
     private static Statement sta;
     private static ResultSet results = null;
-
     public static String DB_URL =  "jdbc:mysql://drupal1.cjdyxtdazjt1.us-west-2.rds.amazonaws.com:3306/Drupal1";
     public static String DB_user = "Ye_Jiang";
     public static String DB_password = "sung753JY";
@@ -21,9 +19,17 @@ public class DatabaseTest {
     public static WebDriver webDriver = new ChromeDriver();
     public static String loginUserName = "";
 
+    public void test(){
+        try {
+            setUp();
+            testUserName();
+            close();
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
     public void setUp(){
         try{
-
             // Login set up
             String baseUrl = "http://52.11.193.136/";
             webDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
@@ -41,16 +47,12 @@ public class DatabaseTest {
 
             // WebDriver set up
             webDriver = new ChromeDriver();
-
-
         }
         catch(Exception e){
             e.printStackTrace();
         }
     }
-
-
-    public void test()throws SQLException {
+    public void testUserName()throws SQLException {
         String query = "select * from users";
 
         try{
@@ -68,7 +70,6 @@ public class DatabaseTest {
             se.printStackTrace();
         }
     }
-
     public void close(){
         try {results.close();}
         catch(Exception e){
