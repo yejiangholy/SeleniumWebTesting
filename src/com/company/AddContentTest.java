@@ -6,8 +6,6 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-import java.util.concurrent.TimeUnit;
-
 /**
  * Created by YeJiang on 2/8/17.
  *

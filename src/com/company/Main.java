@@ -19,15 +19,15 @@ public class Main {
         boolean addNewArticle = true;
         boolean searchFunciton = true;
         boolean checkAllLinkStatus = true;
-        if(Adminlogin) {
-            setUp();
-            Login home = new Login(driver);
-            home.LoginUser("Ye Jiang", "sung753JY");
-        }
         if(checkAllLinkStatus){
             checkAllLinkResponse checkHomeLinks = new checkAllLinkResponse(driver);
             checkHomeLinks.testLinkResponse();
             backToHomepage();
+        }
+        if(Adminlogin) {
+            setUp();
+            Login home = new Login(driver);
+            home.LoginUser("Ye Jiang", "sung753JY");
         }
         if(postComment){
             PostCommentTest postingComment = new PostCommentTest(driver,"Comment","test comment here","Test Title");
@@ -52,6 +52,7 @@ public class Main {
             }catch(Exception e){
                 e.printStackTrace();}
         }
+        driver.quit();
      }
 
     public static void backToHomepage(){

@@ -1,11 +1,8 @@
 package com.company;
-
-import org.apache.log4j.Appender;
 import org.apache.log4j.PropertyConfigurator;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
@@ -21,6 +18,7 @@ public class checkAllLinkResponse {
     static Logger log = Logger.getLogger("checkAllLinkStatus");
 
     public checkAllLinkResponse(WebDriver driver){
+        driver.get("http://52.11.193.136/");
         PropertyConfigurator.configure("log.properties");
         this.driver = driver;
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
