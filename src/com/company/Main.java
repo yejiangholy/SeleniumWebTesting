@@ -24,6 +24,11 @@ public class Main {
             Login home = new Login(driver);
             home.LoginUser("Ye Jiang", "sung753JY");
         }
+        if(checkAllLinkStatus){
+            checkAllLinkResponse checkHomeLinks = new checkAllLinkResponse(driver);
+            checkHomeLinks.testLinkResponse();
+            backToHomepage();
+        }
         if(postComment){
             PostCommentTest postingComment = new PostCommentTest(driver,"Comment","test comment here","Test Title");
             postingComment.test();
@@ -37,11 +42,6 @@ public class Main {
         if(searchFunciton){
             SearchBarFunctionTest searchTest = new SearchBarFunctionTest(driver,"Algorithm");
             searchTest.test();
-            backToHomepage();
-        }
-        if(checkAllLinkStatus){
-            checkAllLinkResponse checkHomeLinks = new checkAllLinkResponse(driver, baseUrl);
-            checkHomeLinks.testLinkResponse();
             backToHomepage();
         }
         if(db) {

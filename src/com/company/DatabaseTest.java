@@ -2,11 +2,8 @@ package com.company;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-
 import java.sql.*;
-import java.util.concurrent.TimeUnit;
 
 /**
  * Created by YeJiang on 2/8/17.
@@ -60,7 +57,7 @@ public class DatabaseTest {
                 if(id == 1) {
                     String DBname = results.getString("name");
 
-                   if(DBname.equals(loginUserName))log.info("----- DB test success");
+                   if(DBname.equals(loginUserName))log.info("--------------DB test passed");
                 }
             }
         }
